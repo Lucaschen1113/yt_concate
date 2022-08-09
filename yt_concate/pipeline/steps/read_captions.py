@@ -1,25 +1,21 @@
-import os
-import ast
-from pprint import pprint
-
 from yt_concate.pipeline.steps.step import Step
-from yt_concate.pipeline.settings import CAPTIONS_DIR
-
+import ast
 
 class ReadCaption(Step):
     def process(self, data, inputs, utils):
-        data = {}
-        for caption_file in os.listdir(CAPTIONS_DIR):
+        for yt in data:
+            if not utils.caption_file_exists(yt):
+                continue
+
             captions = {}
-            with open (os.path.join(CAPTIONS_DIR,caption_file) ,'r' ) as f:
+            with open (yt.caption_filepath ,'r' ) as f:
                 for line in f:
                     dic = ast.literal_eval(line)
                     caption = dic["text"]
                     starttime = dic["start"]
                     captions[caption] = starttime
 
-                data[caption_file] = captions
+            yt.captions = captions
 
-        pprint(data)
         return data
 
