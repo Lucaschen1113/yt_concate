@@ -13,7 +13,9 @@ class ReadCaption(Step):
                     dic = ast.literal_eval(line)
                     caption = dic["text"]
                     starttime = dic["start"]
-                    captions[caption] = starttime
+                    duration = dic["duration"]
+                    video_time = [starttime, duration]
+                    captions[caption] = video_time
 
             yt.captions = captions
 

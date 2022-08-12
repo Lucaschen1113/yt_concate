@@ -1,4 +1,18 @@
 certifi==2021.10.8
+charset-normalizer==2.0.10
+colorama==0.4.5
+decorator==4.4.2
+idna==3.3
+imageio==2.21.1
+imageio-ffmpeg==0.4.7
+moviepy==1.0.3
+numpy==1.23.1
+Pillow==9.2.0
+proglog==0.1.10
 python-dotenv==0.19.2
-pytube==11.0.2
+pytube @ git+https://github.com/baxterisme/pytube@510d766dc9d76ddc6746d1cd9ae36ea59852b853
+requests==2.27.1
+tqdm==4.64.0
+urllib3==1.26.8
 wincertstore==0.2
+youtube-transcript-api==0.4.3
